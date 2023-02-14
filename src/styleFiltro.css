@@ -1,5 +1,5 @@
 body{
-    background: linear-gradient(180deg, #0cf25d, #1F0802);
+    background: linear-gradient(180deg, #B2DF28, #ffff);
     background-repeat: no-repeat;
 }
 
@@ -44,7 +44,7 @@ header img{
 .menu li{
     list-style: none;
     padding: 0px 75px;
-    color: white;
+    color: #38184C;
     font-size: 18px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     
@@ -65,7 +65,6 @@ header img{
 }
 
 .conjuntoPesquisaEFiltro{
-    border: solid #B2DF28 2px;
     width: 80%;
     margin: 0 auto;
     background-color: #00B5CC;
@@ -83,12 +82,14 @@ header img{
 }
 .container div{
     background-color: white;
-    max-width: 490px;
+    max-width: 350px;
     display: flex;
     flex-direction: column;
     align-items: center;
     border-radius: 10px;
+    margin: 15px;
     padding: 10px;
+    flex-grow: 3;
 }
 .container img{
     max-width: 150px;
