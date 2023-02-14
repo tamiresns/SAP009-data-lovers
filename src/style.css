@@ -39,3 +39,16 @@ button{
     justify-content: space-around;
 }
 
+footer{
+    color: #0CF25D;
+    text-align: center;
+    }
+
+.rodape{
+    height: 60px;
+    flex-wrap: wrap;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    margin-left: 30%;
+}
