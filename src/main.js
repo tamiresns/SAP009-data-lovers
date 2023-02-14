@@ -5,7 +5,6 @@ import data from './data/rickandmorty/rickandmorty.js';
 const botaoPersonagem = document.getElementById("btn-personagem")
 botaoPersonagem.addEventListener("click", mostrar)
 
-
 function mostrar(){
   const root = document.getElementById('container-personagens')
   root.innerHTML = data.results.map((personagemAtual) => 
@@ -27,6 +26,20 @@ function mostrar(){
       </div>
   `)
 }
-  
+
+const ordemAlfabetica = document.getElementById("ordemAlfabetica")
+ordemAlfabetica.addEventListener("change", ordenar)
+
+
+function ordenar(){
+  data.sort(function(a,b){
+    if(a.name < b.name){
+      return -1;
+    }
+    else{
+      return true;
+    }
+  })
+}
 export default mostrar
 
