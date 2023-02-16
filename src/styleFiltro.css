@@ -1,5 +1,5 @@
 body{
-    background: linear-gradient(180deg, #B2DF28, #ffff);
+    background: #252525;
     background-repeat: no-repeat;
 }
 
@@ -18,6 +18,20 @@ header img{
     justify-content: center;
     align-content: stretch;
     flex-wrap: wrap;
+    list-style: none;
+}
+.menu a{
+    text-decoration: none;
+    padding: 0px 75px;
+    color: white;
+    font-size: 18px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.menu a:hover{
+    border: solid;
+    background-color: rgba(255, 255, 255, 0.871);
+    border-radius: 10px;
+    color:#025951;
 }
 
 .pesquisa h1{
@@ -41,22 +55,6 @@ header img{
     font-style: italic;
 }
 
-.menu li{
-    list-style: none;
-    padding: 0px 75px;
-    color: #38184C;
-    font-size: 18px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    
-}
-.menu a:hover{
-    border: solid;
-    background-color: rgba(255, 255, 255, 0.465);
-    border-radius: 10px;
-    padding: 3px 20px;
-    color:#025951;
-}
-
 .filtro{
     display: flex;
     flex-wrap: wrap;
@@ -65,10 +63,11 @@ header img{
 }
 
 .conjuntoPesquisaEFiltro{
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
     background-color: #00B5CC;
     border-radius: 10px;
+    border: solid 1px #B2DF28;
 }
 
 .container{
