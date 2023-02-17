@@ -1,19 +1,7 @@
-//import { mostrar } from './data.js';
+function porcentagem(data){
+  const porcento = data * 100 / 31 
+  const porcentoArredondado = Math.round(porcento)
+  return porcentoArredondado
+}
 
-
-
-
-
-export const example = () => {
-  return 'example';
-};
-
-export const anotherExample = () => {
-  return 'OMG';
-};
-
-
-
-
-
-export {}
+export default porcentagem
