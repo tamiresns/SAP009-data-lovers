@@ -1,6 +1,4 @@
 
-// import data from './data/lol/lol.js';
-//import data from './data/pokemon/pokemon.js';
 import data from './data/rickandmorty/rickandmorty.js';
 
 const botaoPersonagem = document.getElementById("btn-personagem")
@@ -52,7 +50,7 @@ function mostrarFiltrado(event){
 }
 
 const ordemAlfabetica = document.getElementById("ordemAlfabetica");
-ordemAlfabetica.addEventListener("change", mostrarFiltrado);
+ordemAlfabetica.addEventListener ("change", mostrarFiltrado);
 
 
 function ordenar(dadosFiltrados, tipoOrdenacao){
