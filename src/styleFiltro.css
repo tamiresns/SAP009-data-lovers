@@ -34,6 +34,16 @@ header img{
     color:#025951;
 }
 
+.botaoFiltros{
+    height: 28px;
+    width: 160px;
+    margin: 2px 3px;
+    border-radius: 10px;
+    outline: 0;
+    border: none;
+
+}
+
 .pesquisa h1{
     color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -46,12 +56,11 @@ header img{
 }
 
 #divBusca input{
-    height: 25px;
+    height: 27px;
     min-width: 350px;
     border-radius: 15px;
-    box-shadow: 0 0 0 0;
     outline: 0;
-    border: none;
+    border: solid #4DDE24;
     font-style: italic;
 }
 

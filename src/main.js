@@ -84,7 +84,6 @@ function ordenar(dadosFiltrados, tipoOrdenacao){
 const estadosDeVida = document.getElementById("estadoDeVida");
 estadosDeVida.addEventListener ("change", mostrarFiltrado);
 
-
 function vida(dadosFiltrados, estadoDeVida){
 
   if(estadoDeVida === "Vivo") {
@@ -113,6 +112,7 @@ function vida(dadosFiltrados, estadoDeVida){
   // }
   // return novaArray;
 }
+
 
 export default mostrar
 
