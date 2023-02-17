@@ -23,6 +23,7 @@ function mostrar(){
           <li class="linhaEscura">LUGAR ONDE VIVE:</li>
           <li class="linhaEscura">${personagemAtual.location.name}<li>
           <li class="linhaClara">EPISÓDIOS EM QUE APARECE:</li>
+          <li class="linhaClara"></li>
         </ul>
       </div>
   `)
@@ -85,7 +86,6 @@ function ordenar(dadosFiltrados, tipoOrdenacao){
     return novaArray.reverse();
   }*/
 }
-
 
 export default mostrar
 
