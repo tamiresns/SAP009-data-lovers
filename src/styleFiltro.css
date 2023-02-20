@@ -83,9 +83,10 @@ header img{
     display: flex;
     justify-content: space-around;
     border-width: 2px;
-    padding: 25px;
+    padding: 20px;
     align-items: center;
     flex-wrap: wrap;
+    font-family: system-ui;
 
 }
 .container div{
@@ -112,12 +113,15 @@ header img{
 .listaDados li{
     list-style: none;
     height: 20px;
+    display: flex;
+    justify-content: center;
 }
 
 .linhaEscura{
     border: solid white 1px;
     width: 100%;
     background-color: white;
+    margin: 1.5px 0px 0px 0px;
 
 }
 
@@ -125,5 +129,6 @@ header img{
     border: solid #D9D9D9 1px;
     width: 100%;
     background-color: #D9D9D9;
+
 }
 
