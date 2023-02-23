@@ -35,26 +35,13 @@ header img{
 }
 
 :root {
-        --space-sm: 16px;
-    
-  
-    --gray: #555;
-    --gray-dark: #333;
-    --gray-darker: #111;
-    --gray-light: #00B5CC;
-    --gray-lighter: #00B5CC;
-    --blue: #187888;
-    --yellow: #e6af05;
-    --white: #fff;
-    --black: #000;
-  
-    --brand-primary: var(--blue);
-    --background: var(--white);
-    --text-color: var(--gray-darker);
+  --space-sm: 16px;
+  --gray-light: #00B5CC;
+  /* --gray-lighter: #00B5CC; */
   }
   
   article{
-    /* background-color: var(--background); */
+    margin-top: 70px;
     color: var(--text-color);
     font-family: "Open Sans", sans-serif;
     font-size: 16px;
@@ -71,12 +58,11 @@ header img{
   .collapse {
     border: solid 1px var(--gray-lighter);
     border-radius: 4px;
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 50);
     margin-left: auto;
     margin-right: auto;
-    max-width: 500px;
+    max-width: 900px;
     transition: background-color 0.25s;
-    will-change: background-color;
   
     &:first-child {
       margin-top: var(--space);
@@ -105,5 +91,16 @@ header img{
     line-height: 21px;
     padding: var(--space-sm);
   }
+
+    .separacaoVerde {
+      width: 75%;
+      margin: auto;
+      margin-top: 40px;
+      background-color: #0CF25D;
+      border-radius: 10px;
+      text-align: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 18px;
+      }
   
 
