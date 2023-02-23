@@ -1,8 +1,6 @@
 import porcentagem from './data.js';
 import data from './data/rickandmorty/rickandmorty.js';
 
-
-
 //função pega o html e preenche com os dados do json
 function mostrar(){
   const root = document.getElementById('container-personagens')
@@ -58,27 +56,27 @@ function filtrarDados(personagem){
   const ondeVive = document.getElementById("lugarOndeVive").value
 
   return personagem.filter((personagemAtual) => {
-    if(estadoDeVida !== 0){
+    if(estadoDeVida !== "0"){
       if(personagemAtual.status === estadoDeVida){
         return true
       }
     }
-    if(especie !== 0){
+    if(especie !== "0"){
       if(personagemAtual.species === especie){
         return true
       }
     }
-    if(genero !== 0){
+    if(genero !== "0"){
       if(personagemAtual.gender === genero){
         return true
       }
     }
-    if(origem !== 0){
+    if(origem !== "0"){
       if(personagemAtual.origin.name === origem){
         return true
       }
     }
-    if(ondeVive !== 0){
+    if(ondeVive !== "0"){
       if(personagemAtual.location.name === ondeVive){
         return true
       }
@@ -129,6 +127,23 @@ function montaFiltroStatus(){
 
 }
 
+function montaFiltroGender(){
+  const genero = document.getElementById("genero");
+  genero.addEventListener ("change", () => {mostrarFiltrado(event, "filtroGenero")});
+
+  const dicionario = {
+    "Female" : "feminino" ,
+    "Male" : "masculino" ,
+    "unknown" : "desconhecido" ,
+    "undefined" : "indefinido"
+  }
+  const valoresUnicos = Array.from(new Set(data.results.map((personagemAtual) => 
+    `<option value="${personagemAtual.gender}">c</option>`
+  )))
+  genero.innerHTML = "<option value=0>Gênero</option>"+valoresUnicos;
+
+}
+
 function montaFiltroEspecie(){
   const especie = document.getElementById("especie");
   especie.addEventListener ("change", () => {mostrarFiltrado(event, "filtroEspecie")});
@@ -159,9 +174,24 @@ function montaFiltroLugar(){
     `<option value="${personagemAtual.location.name}">${personagemAtual.location.name}</option>`
   )))
   lugarOndeVive.innerHTML = "<option value=0>Lugar onde vive</option>" + valoresUnicos;
-
 }
 
+// const botaoPesquisaNome = document.getElementById("btnBusca")
+// botaoPesquisaNome.addEventListener("click", pesquisaNome());
+// function pesquisaNome() {
+//   const x = (data.results.name)
+//   let input = document.getElementById("txtBusca").value
+//   input = input.toLowerCase();
+  
+//   for (let i = 0; i < x.length; i++) {
+//     if (!x[i].innerHTML.toLowerCase().includes(input)) {
+//       x[i].style.display="none";
+//     }
+//     else {
+//       x[i].style.display="list-item";
+//     }
+//   }
+// }
 
 //incluir novo filtro
 document.addEventListener('DOMContentLoaded', function () {
@@ -171,11 +201,15 @@ document.addEventListener('DOMContentLoaded', function () {
   const ordemAlfabetica = document.getElementById("ordemAlfabetica");
   ordemAlfabetica.addEventListener ("change", mostrarFiltrado);
 
+  mostrar()
   montaFiltroStatus()
   montaFiltroEspecie()
   montaFiltroLocalOrigem()
   montaFiltroLugar()
+  montaFiltroGender()
+  
 })
 
-export {mostrar, ordenar} 
+export {mostrar, ordenar, //pesquisaNome//
+} 
 
