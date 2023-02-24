@@ -210,3 +210,7 @@ document.addEventListener('DOMContentLoaded', function () {
 export {mostrar, ordenar, //pesquisaNome//
 } 
 
+
+
+
+

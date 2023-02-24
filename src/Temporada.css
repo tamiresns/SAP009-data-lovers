@@ -36,18 +36,17 @@ header img{
 
 :root {
   --space-sm: 16px;
-  --gray-light: #00B5CC;
-  /* --gray-lighter: #00B5CC; */
+  --gray-light: black;
+  --gray-lighter: black;
   }
   
-  article{
+  .temps{
     margin-top: 70px;
     color: var(--text-color);
     font-family: "Open Sans", sans-serif;
     font-size: 16px;
-    color: #00B5CC;
-
-  }
+    color: black;
+    }
   
   details {
     summary {
@@ -63,6 +62,7 @@ header img{
     margin-right: auto;
     max-width: 80%;
     transition: background-color 0.25s;
+    background-color: rgb(213, 219, 217);
   
     &:first-child {
       margin-top: var(--space);
@@ -100,7 +100,7 @@ header img{
       border-radius: 10px;
       text-align: center;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      font-size: 18px;
+      font-size: 13px;
       }
 
       li{

@@ -41,7 +41,6 @@ header img{
     border-radius: 10px;
     outline: 0;
     border: none;
-
 }
 
 .pesquisa h1{
@@ -129,6 +128,11 @@ header img{
     border: solid #D9D9D9 1px;
     width: 100%;
     background-color: #D9D9D9;
-
 }
 
+#frase{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    color: white;
+    text-align: center;
+}
