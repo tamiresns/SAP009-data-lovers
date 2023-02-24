@@ -2,6 +2,7 @@
 import data from '../src/data/rickandmorty/rickandmorty.js';
 import {ordenar, montaFiltroStatus} from '../src/main.js';
 
+
 describe('testando o filtro de Ordem alfabética', () => {
   it('carregando os personagens a-z', () => {
     const dadosOrdenados = ordenar(data.results, "az")

@@ -38,7 +38,7 @@ function montaTemplate(personagemAtual){
 `
 }
 
-function mostrarFiltrado(event){
+function mostrarFiltrado(){
   const root = document.getElementById('container-personagens')
   const dadosFiltrados = filtrarDados(data.results)
   const tipoOrdenacao = document.getElementById("ordemAlfabetica").value
@@ -113,7 +113,7 @@ function ordenar(dadosFiltrados, tipoOrdenacao){
 //template para novos filtros
 function montaFiltroStatus(){
   const estadosDeVida = document.getElementById("estadoDeVida");
-  estadosDeVida.addEventListener ("change", () => {mostrarFiltrado(event, "filtroStatus")});
+  estadosDeVida.addEventListener("change", mostrarFiltrado);
 
   const dicionario = {
     "Alive" : "vivo" ,
@@ -129,7 +129,7 @@ function montaFiltroStatus(){
 
 function montaFiltroGender(){
   const genero = document.getElementById("genero");
-  genero.addEventListener ("change", () => {mostrarFiltrado(event, "filtroGenero")});
+  genero.addEventListener("change", mostrarFiltrado);
 
   const dicionario = {
     "Female" : "feminino" ,
@@ -138,37 +138,34 @@ function montaFiltroGender(){
     "undefined" : "indefinido"
   }
   const valoresUnicos = Array.from(new Set(data.results.map((personagemAtual) => 
-    `<option value="${personagemAtual.gender}">c</option>`
+    `<option value="${personagemAtual.gender}">${dicionario[personagemAtual.gender]}</option>`
   )))
-  genero.innerHTML = "<option value=0>Gênero</option>"+valoresUnicos;
-
+  genero.innerHTML = "<option value=0>Gênero</option>" + valoresUnicos;
 }
 
 function montaFiltroEspecie(){
   const especie = document.getElementById("especie");
-  especie.addEventListener ("change", () => {mostrarFiltrado(event, "filtroEspecie")});
+  especie.addEventListener("change", mostrarFiltrado);
 
   const valoresUnicos = Array.from(new Set(data.results.map((personagemAtual) => 
     `<option value="${personagemAtual.species}">${personagemAtual.species}</option>`
   )))
   especie.innerHTML = "<option value=0>Espécie</option>" + valoresUnicos;
-
 }
 
 function montaFiltroLocalOrigem(){
   const origem = document.getElementById("localDeOrigem");
-  origem.addEventListener ("change", () => {mostrarFiltrado(event, "filtroOrigem")});
+  origem.addEventListener("change", mostrarFiltrado);
 
   const valoresUnicos = Array.from(new Set(data.results.map((personagemAtual) => 
     `<option value="${personagemAtual.origin.name}">${personagemAtual.origin.name}</option>`
   )))
   origem.innerHTML = "<option value=0>Local de Origem</option>" + valoresUnicos;
-
 }
 
 function montaFiltroLugar(){
   const lugarOndeVive = document.getElementById("lugarOndeVive");
-  lugarOndeVive.addEventListener ("change", () => {mostrarFiltrado(event, "filtroLugarOndeVive")});
+  lugarOndeVive.addEventListener("change", mostrarFiltrado);
 
   const valoresUnicos = Array.from(new Set(data.results.map((personagemAtual) => 
     `<option value="${personagemAtual.location.name}">${personagemAtual.location.name}</option>`
