@@ -1,19 +1,10 @@
-import porcentagem from './data.js';
+import {porcentagem, ordenar, filtrar, lerJson} from './data.js';
 import data from './data/rickandmorty/rickandmorty.js';
-
-
 
 //função pega o html e preenche com os dados do json
 function mostrar(){
   const root = document.getElementById('container-personagens')
   root.innerHTML = lerJson()
-}
-
-//faz a manipulação de dados do json
-function lerJson(){
-  return data.results.map((personagemAtual) => 
-    montaTemplate(personagemAtual)
-  )
 }
 
 //responsável por criar a div da caixinha de personagem
@@ -40,8 +31,7 @@ function montaTemplate(personagemAtual){
 `
 }
 
-function mostrarFiltrado(event){
-  console.log("mostrar filtrado")
+function mostrarFiltrado(){
   const root = document.getElementById('container-personagens')
   const dadosFiltrados = filtrarDados(data.results)
   const tipoOrdenacao = document.getElementById("ordemAlfabetica").value
@@ -57,77 +47,14 @@ function filtrarDados(personagem){
   const genero = document.getElementById("genero").value
   const origem = document.getElementById("localDeOrigem").value
   const ondeVive = document.getElementById("lugarOndeVive").value
-
-
-  /*let resultado = []
-  if(estadoDeVida !== "0"){
-    console.log("estado de vida selecionado")
-  }*/
-
-  //quando um filtro for selecionado, os outros terão que ser zerados
-
-
-  return personagem.filter((personagemAtual) => {
-    if(estadoDeVida !== 0){
-      if(personagemAtual.status === estadoDeVida){
-        return true
-      }
-    }
-    if(especie !== 0){
-      if(personagemAtual.species === especie){
-        return true
-      }
-    }
-    if(genero !== 0){
-      if(personagemAtual.gender === genero){
-        return true
-      }
-    }
-    if(origem !== 0){
-      if(personagemAtual.origin.name === origem){
-        return true
-      }
-    }
-    if(ondeVive !== 0){
-      if(personagemAtual.location.name === ondeVive){
-        return true
-      }
-    }
-  })
-
+  return filtrar(personagem, estadoDeVida, especie, genero, origem, ondeVive) 
 }
 
-function ordenar(dadosFiltrados, tipoOrdenacao){
-  const novaArray = [...dadosFiltrados]
-
-  if(tipoOrdenacao === "az") {
-    novaArray.sort(function(a,b){
-      if(a.name < b.name){
-        return -1;
-      }
-      else{
-        return +1;
-      }
-    })
-  } 
-  else if(tipoOrdenacao === "za"){ //exbibe na ordem inversa
-    novaArray.sort(function(a,b){
-      if(a.name > b.name){
-        return -1;
-      }
-      else{
-        return +1;
-      }
-    })
-  }
-  return novaArray;
-}
 
 //template para novos filtros
 function montaFiltroStatus(){
   const estadosDeVida = document.getElementById("estadoDeVida");
-  estadosDeVida.addEventListener ("change", () => {mostrarFiltrado(event, "filtroStatus")});
-
+  estadosDeVida.addEventListener("change", mostrarFiltrado);
 
   const dicionario = {
     "Alive" : "vivo" ,
@@ -141,42 +68,70 @@ function montaFiltroStatus(){
 
 }
 
+function montaFiltroGender(){
+  const genero = document.getElementById("genero");
+  genero.addEventListener("change", mostrarFiltrado);
+
+  const dicionario = {
+    "Female" : "feminino" ,
+    "Male" : "masculino" ,
+    "unknown" : "desconhecido" ,
+    "undefined" : "indefinido"
+  }
+  const valoresUnicos = Array.from(new Set(data.results.map((personagemAtual) => 
+    `<option value="${personagemAtual.gender}">${dicionario[personagemAtual.gender]}</option>`
+  )))
+  genero.innerHTML = "<option value=0>Gênero</option>" + valoresUnicos;
+}
+
 function montaFiltroEspecie(){
   const especie = document.getElementById("especie");
-  especie.addEventListener ("change", () => {mostrarFiltrado(event, "filtroEspecie")});
+  especie.addEventListener("change", mostrarFiltrado);
 
   const valoresUnicos = Array.from(new Set(data.results.map((personagemAtual) => 
     `<option value="${personagemAtual.species}">${personagemAtual.species}</option>`
   )))
   especie.innerHTML = "<option value=0>Espécie</option>" + valoresUnicos;
-
 }
 
 function montaFiltroLocalOrigem(){
   const origem = document.getElementById("localDeOrigem");
-  origem.addEventListener ("change", () => {mostrarFiltrado(event, "filtroOrigem")});
+  origem.addEventListener("change", mostrarFiltrado);
 
   const valoresUnicos = Array.from(new Set(data.results.map((personagemAtual) => 
     `<option value="${personagemAtual.origin.name}">${personagemAtual.origin.name}</option>`
   )))
   origem.innerHTML = "<option value=0>Local de Origem</option>" + valoresUnicos;
-
 }
 
 function montaFiltroLugar(){
   const lugarOndeVive = document.getElementById("lugarOndeVive");
-  lugarOndeVive.addEventListener ("change", () => {mostrarFiltrado(event, "filtroLugarOndeVive")});
+  lugarOndeVive.addEventListener("change", mostrarFiltrado);
 
   const valoresUnicos = Array.from(new Set(data.results.map((personagemAtual) => 
     `<option value="${personagemAtual.location.name}">${personagemAtual.location.name}</option>`
   )))
   lugarOndeVive.innerHTML = "<option value=0>Lugar onde vive</option>" + valoresUnicos;
-
 }
 
+// const botaoPesquisaNome = document.getElementById("btnBusca")
+// botaoPesquisaNome.addEventListener("click", pesquisaNome());
+// function pesquisaNome() {
+//   const x = (data.results.name)
+//   let input = document.getElementById("txtBusca").value
+//   input = input.toLowerCase();
+  
+//   for (let i = 0; i < x.length; i++) {
+//     if (!x[i].innerHTML.toLowerCase().includes(input)) {
+//       x[i].style.display="none";
+//     }
+//     else {
+//       x[i].style.display="list-item";
+//     }
+//   }
+// }
 
-//add eventos nos botões e preenche filtros com base no JSON 
-//só quando o DOM estiver 100% carregado, para nao impactar nos teste unitários
+//incluir novo filtro
 document.addEventListener('DOMContentLoaded', function () {
   const botaoPersonagem = document.getElementById("btn-personagem")
   botaoPersonagem.addEventListener("click", mostrar)
@@ -189,7 +144,14 @@ document.addEventListener('DOMContentLoaded', function () {
   montaFiltroEspecie()
   montaFiltroLocalOrigem()
   montaFiltroLugar()
+  montaFiltroGender()
+  
 })
 
-export {mostrar, ordenar} 
+export {mostrar, ordenar,//pesquisaNome//
+} 
+
+
+
+
 

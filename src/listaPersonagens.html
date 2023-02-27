@@ -14,7 +14,8 @@
     <nav class="menu">
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li id="btn-personagem"><a>Personagens</a></li>
+        <li id="btn-personagem"><a href="listaPersonagens.html">Personagens</a></li>
+        <li><a href="temporada.html">Episódios e temporadas</a></li>
         <li><a href="sobreAserie.html">Sobre a Série</a></li>
       </ul>
     </nav>
@@ -30,7 +31,7 @@
       </section>
 
       <section>
-        <label>Escolha um filtro e ...wubba lubba dub dub</label>
+        <label id="frase">Escolha um filtro e ...wubba lubba dub dub</label>
       </section>
      
         <section class="filtro">
@@ -44,37 +45,28 @@
 
           <div>
             <select class="botaoFiltros" name="estadoDeVida" id="estadoDeVida">
-              <option>Estado de vida</option>
-              <option value="vivo">Vivo</option>
-              <option value="morto">Morto</option>
-              <option value="Desconhecido">Desconhecido</option>
             </select>
           </div>
 
           <div>
             <select class="botaoFiltros" name="especie" id="especie">
               <option>Espécie</option>
+             
             </select>
           </div>
 
           <div>
             <select class="botaoFiltros" name="genero" id="genero">
-              <option>Gênero</option>
-              <option value="Feminino">Feminino</option>
-              <option value="Masculino">Masculino</option>
-              <option value="Desconhecido">Desconhecido</option>
             </select>
           </div>
 
           <div>
             <select class="botaoFiltros" name="localDeOrigem" id="localDeOrigem">
-              <option>Local de Origem</option>
             </select>
           </div>
 
           <div>
             <select class="botaoFiltros" name="lugarOndeVive" id="lugarOndeVive">
-              <option>Lugar onde vive</option>
             </select>
           </div>
         </section>
@@ -86,6 +78,8 @@
       </section>
     </main>
     <script src="main.js" type="module"></script>
+    <script src="data.js" type="module"></script>
+
     
   </body>
   

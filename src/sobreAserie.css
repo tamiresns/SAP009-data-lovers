@@ -15,12 +15,12 @@ button{
     text-align: center;
     border-radius: 10px;
     background-color: #0CF25D;
-    border: 3px solid #02735E;
+    border: 2px solid #02735E;
     padding: 2px 20px;
     color: #025951;
     width: 120px;
-    height: 55px;
-    font-size: 27px;
+    height: 35px;
+    font-size: 20px;
 }
 
 header{
