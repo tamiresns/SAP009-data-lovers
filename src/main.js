@@ -1,17 +1,10 @@
-import porcentagem from './data.js';
+import {porcentagem, ordenar, filtrar, lerJson} from './data.js';
 import data from './data/rickandmorty/rickandmorty.js';
 
 //função pega o html e preenche com os dados do json
 function mostrar(){
   const root = document.getElementById('container-personagens')
   root.innerHTML = lerJson()
-}
-
-//faz a manipulação de dados do json
-function lerJson(){
-  return data.results.map((personagemAtual) => 
-    montaTemplate(personagemAtual)
-  )
 }
 
 //responsável por criar a div da caixinha de personagem
@@ -54,61 +47,9 @@ function filtrarDados(personagem){
   const genero = document.getElementById("genero").value
   const origem = document.getElementById("localDeOrigem").value
   const ondeVive = document.getElementById("lugarOndeVive").value
-
-  return personagem.filter((personagemAtual) => {
-    if(estadoDeVida !== "0"){
-      if(personagemAtual.status === estadoDeVida){
-        return true
-      }
-    }
-    if(especie !== "0"){
-      if(personagemAtual.species === especie){
-        return true
-      }
-    }
-    if(genero !== "0"){
-      if(personagemAtual.gender === genero){
-        return true
-      }
-    }
-    if(origem !== "0"){
-      if(personagemAtual.origin.name === origem){
-        return true
-      }
-    }
-    if(ondeVive !== "0"){
-      if(personagemAtual.location.name === ondeVive){
-        return true
-      }
-    }
-  })
-
+  return filtrar(personagem, estadoDeVida, especie, genero, origem, ondeVive) 
 }
-function ordenar(dadosFiltrados, tipoOrdenacao){
-  const novaArray = [...dadosFiltrados]
 
-  if(tipoOrdenacao === "az") {
-    novaArray.sort(function(a,b){
-      if(a.name < b.name){
-        return -1;
-      }
-      else{
-        return +1;
-      }
-    })
-  } 
-  else if(tipoOrdenacao === "za"){ //exbibe na ordem inversa
-    novaArray.sort(function(a,b){
-      if(a.name > b.name){
-        return -1;
-      }
-      else{
-        return +1;
-      }
-    })
-  }
-  return novaArray;
-}
 
 //template para novos filtros
 function montaFiltroStatus(){
@@ -207,7 +148,7 @@ document.addEventListener('DOMContentLoaded', function () {
   
 })
 
-export {mostrar, ordenar, //pesquisaNome//
+export {mostrar, ordenar,//pesquisaNome//
 } 
 
 
