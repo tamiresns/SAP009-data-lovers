@@ -41,13 +41,14 @@ function montaTemplate(personagemAtual){
 }
 
 function mostrarFiltrado(event){
+  console.log("mostrar filtrado")
   const root = document.getElementById('container-personagens')
   const dadosFiltrados = filtrarDados(data.results)
   const tipoOrdenacao = document.getElementById("ordemAlfabetica").value
   root.innerHTML = ordenar(dadosFiltrados, tipoOrdenacao).map((personagemAtual) => 
     montaTemplate(personagemAtual)
   )
-}
+} 
 
 //expandir
 function filtrarDados(personagem){
@@ -56,6 +57,15 @@ function filtrarDados(personagem){
   const genero = document.getElementById("genero").value
   const origem = document.getElementById("localDeOrigem").value
   const ondeVive = document.getElementById("lugarOndeVive").value
+
+
+  /*let resultado = []
+  if(estadoDeVida !== "0"){
+    console.log("estado de vida selecionado")
+  }*/
+
+  //quando um filtro for selecionado, os outros terão que ser zerados
+
 
   return personagem.filter((personagemAtual) => {
     if(estadoDeVida !== 0){
@@ -86,6 +96,7 @@ function filtrarDados(personagem){
   })
 
 }
+
 function ordenar(dadosFiltrados, tipoOrdenacao){
   const novaArray = [...dadosFiltrados]
 
@@ -116,6 +127,7 @@ function ordenar(dadosFiltrados, tipoOrdenacao){
 function montaFiltroStatus(){
   const estadosDeVida = document.getElementById("estadoDeVida");
   estadosDeVida.addEventListener ("change", () => {mostrarFiltrado(event, "filtroStatus")});
+
 
   const dicionario = {
     "Alive" : "vivo" ,
@@ -163,7 +175,8 @@ function montaFiltroLugar(){
 }
 
 
-//incluir novo filtro
+//add eventos nos botões e preenche filtros com base no JSON 
+//só quando o DOM estiver 100% carregado, para nao impactar nos teste unitários
 document.addEventListener('DOMContentLoaded', function () {
   const botaoPersonagem = document.getElementById("btn-personagem")
   botaoPersonagem.addEventListener("click", mostrar)
@@ -171,6 +184,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const ordemAlfabetica = document.getElementById("ordemAlfabetica");
   ordemAlfabetica.addEventListener ("change", mostrarFiltrado);
 
+  mostrar()
   montaFiltroStatus()
   montaFiltroEspecie()
   montaFiltroLocalOrigem()
