@@ -29,7 +29,7 @@ header{
 }
 
 #logo2{
-    width: 400px;
+    max-width: 400px;
 }
 
 .container{

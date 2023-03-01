@@ -1,4 +1,12 @@
-import {porcentagem, ordenar, filtrar} from './data.js';
+import {
+  porcentagem,
+  ordenar,
+  filtrarPorEspecie,
+  filtrarPorGender,
+  filtrarPorLocation,
+  filtrarPorOrigin,
+  filtrarPorStatus
+} from './data.js';
 import data from './data/rickandmorty/rickandmorty.js';
 
 //função pega o html e preenche com os dados do json
@@ -6,6 +14,13 @@ function mostrar(){
   const root = document.getElementById('container-personagens')
   root.innerHTML = lerJson()
 }
+//faz a manipulação de dados do json
+function lerJson(){
+  return data.results.map((personagemAtual) => 
+    montaTemplate(personagemAtual)
+  )
+}
+
 //faz a manipulação de dados do json
 function lerJson(){
   return data.results.map((personagemAtual) => 
@@ -47,13 +62,31 @@ function mostrarFiltrado(){
 } 
 
 //expandir
-function filtrarDados(personagem){
-  const estadoDeVida = document.getElementById("estadoDeVida").value
+function filtrarDados(personagens){
+  const status = document.getElementById("estadoDeVida").value
   const especie = document.getElementById("especie").value
   const genero = document.getElementById("genero").value
   const origem = document.getElementById("localDeOrigem").value
-  const ondeVive = document.getElementById("lugarOndeVive").value
-  return filtrar(personagem, estadoDeVida, especie, genero, origem, ondeVive) 
+  const location = document.getElementById("lugarOndeVive").value
+  let filtro = personagens
+
+  if(status !== "0"){
+    filtro = filtrarPorStatus(filtro, status)
+  }
+  if(especie !== "0"){
+    filtro = filtrarPorEspecie(filtro, especie)
+  }
+  if(genero !== "0"){
+    filtro = filtrarPorGender(filtro, genero)
+  }
+  if(origem !== "0"){
+    filtro = filtrarPorOrigin(filtro, origem)
+  }
+  if(location !== "0"){
+    filtro = filtrarPorLocation(filtro, location)
+  }
+
+  return filtro
 }
 
 
@@ -81,7 +114,7 @@ function montaFiltroGender(){
     "Female" : "feminino" ,
     "Male" : "masculino" ,
     "unknown" : "desconhecido" ,
-    "undefined" : "indefinido"
+    "Genderless" : "indefinido",
   }
   const valoresUnicos = Array.from(new Set(data.results.map((personagemAtual) => 
     `<option value="${personagemAtual.gender}">${dicionario[personagemAtual.gender]}</option>`
@@ -152,9 +185,10 @@ document.addEventListener('DOMContentLoaded', function () {
   montaFiltroLugar()
   montaFiltroGender()
   
+  
 })
 
-export {mostrar, ordenar,//pesquisaNome//
+export {ordenar,//pesquisaNome//
 } 
 
 
