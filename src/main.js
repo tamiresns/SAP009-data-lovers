@@ -53,7 +53,7 @@ function mostrarFiltrado(){
   root.innerHTML = ordenar(dadosFiltrados, tipoOrdenacao).map((personagemAtual) => 
     montaTemplate(personagemAtual)
   )
-}
+} 
 
 //expandir
 function filtrarDados(personagens){
