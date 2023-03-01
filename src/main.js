@@ -1,10 +1,16 @@
-import {porcentagem, ordenar, filtrar, lerJson} from './data.js';
+import {porcentagem, ordenar, filtrar} from './data.js';
 import data from './data/rickandmorty/rickandmorty.js';
 
 //função pega o html e preenche com os dados do json
 function mostrar(){
   const root = document.getElementById('container-personagens')
   root.innerHTML = lerJson()
+}
+//faz a manipulação de dados do json
+function lerJson(){
+  return data.results.map((personagemAtual) => 
+    montaTemplate(personagemAtual)
+  )
 }
 
 //responsável por criar a div da caixinha de personagem
@@ -65,7 +71,6 @@ function montaFiltroStatus(){
     `<option value="${personagemAtual.status}">${dicionario[personagemAtual.status]}</option>`
   )))
   estadosDeVida.innerHTML = "<option value=0>Estado de vida</option>"+valoresUnicos;
-
 }
 
 function montaFiltroGender(){
@@ -112,6 +117,7 @@ function montaFiltroLugar(){
     `<option value="${personagemAtual.location.name}">${personagemAtual.location.name}</option>`
   )))
   lugarOndeVive.innerHTML = "<option value=0>Lugar onde vive</option>" + valoresUnicos;
+  
 }
 
 // const botaoPesquisaNome = document.getElementById("btnBusca")

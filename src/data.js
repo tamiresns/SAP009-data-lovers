@@ -1,18 +1,9 @@
-import data from "../src/data.js"
-import montaTemplate from "../src/main.js"
-
 export function porcentagem(data){
   const porcento = data * 100 / 31 
   const porcentoArredondado = Math.round(porcento)
   return porcentoArredondado
 }
 
-//faz a manipulação de dados do json
-export function lerJson(){
-  return data.results.map((personagemAtual) => 
-    montaTemplate(personagemAtual)
-  )
-}
 
 export function ordenar(dadosFiltrados, tipoOrdenacao){
   const novaArray = [...dadosFiltrados]
@@ -43,7 +34,7 @@ export function ordenar(dadosFiltrados, tipoOrdenacao){
 export function filtrar(personagem, status, especie, genero, origem, location){
   return personagem.filter((personagemAtual) => {
     if(status !== "0" && personagemAtual.status === status){
-      return true
+      return true   
     }
     if(especie !== "0" && personagemAtual.species === especie){
       return true
