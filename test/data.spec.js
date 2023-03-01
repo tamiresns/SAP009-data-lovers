@@ -1,6 +1,7 @@
 //import porcentagem from '../scr/data.js';
 import data from '../src/data/rickandmorty/rickandmorty.js';
-import {ordenar, filtrar} from '../src/data.js';
+import {ordenar, filtrarPorStatus, filtrarPorGender, filtrarPorLocation, filtrarPorEspecie, filtrarPorOrigin} from '../src/data.js';
+
 
 
 describe('testando o filtro de Ordem alfabética', () => {
@@ -18,48 +19,99 @@ describe('testando o filtro de Ordem alfabética', () => {
   
 });
 
-const arrayTeste = [
-  {
-    "id": 11,
-    "name": "Albert Einstein",
-    "status": "Dead",
-    "species": "Human",
-    "type": "",
-    "gender": "Male",
-    "origin": {
-      "name": "Earth (C-137)",
-      "url": "https://rickandmortyapi.com/api/location/1"
-    },
-    "location": {
-      "name": "Earth (Replacement Dimension)",
-      "url": "https://rickandmortyapi.com/api/location/20"
-    },
-    "image": "https://raw.githubusercontent.com/Laboratoria/rick-and-morty-images/master/images/11.jpeg",
-    "episode": [
-      "https://rickandmortyapi.com/api/episode/12"
-    ],
-    "url": "https://rickandmortyapi.com/api/character/11",
-    "created": "2017-11-04T20:20:20.965Z"
-  },
-]
-
-
 describe('testando o filtro de estado de vida', () => {
   it('carregando os personagens vivos', () => {
-    const dadosOrdenados = filtrar(arrayTeste, "vivo")
-
-    expect(dadosOrdenados[0].status).toEqual("Armagheadon");
+    const dadosOrdenados = filtrarPorStatus(data.results, "Alive")
+    
+    expect(dadosOrdenados[0].name).toEqual("Rick Sanchez");
   });
 
   it('carregando os personagens mortos', () => {
-    const dadosOrdenados = filtrar(arrayTeste, "morto")
+    const dadosOrdenados = filtrarPorStatus(data.results, "Dead")
 
-    expect(dadosOrdenados[0].status).toEqual("Albert Einstein");
+    expect(dadosOrdenados[0].name).toEqual("Adjudicator Rick");
   });
   
   it('carregando os personagens com status desconhecido', () => {
-    const dadosOrdenados = filtrar(arrayTeste, "desconhecido")
+    const dadosOrdenados = filtrarPorStatus(data.results, "unknown")
 
-    expect(dadosOrdenados[0].status).toEqual("Big Head Morty");
+    expect(dadosOrdenados[0].name).toEqual("Abradolf Lincler");
   });
 });
+
+describe('testando filtro de gênero', ()=>{
+  it('carregando os personagens com gênero masculino',() => {
+    const dadosOrdenados = filtrarPorGender(data.results, "Male")
+
+    expect(dadosOrdenados[1].name).toEqual("Morty Smith");
+  });
+
+  it('carregando personagens de gênero feminino',() =>{
+    const dadosOrdenados = filtrarPorGender(data.results, "Female")
+
+    expect(dadosOrdenados[0].name).toEqual("Summer Smith");
+  })
+
+  it('carregando personagens de gênero desconhecido', ()=>{
+    const dadosOrdenados = filtrarPorGender(data.results, "unknown")
+
+    expect(dadosOrdenados[0].name).toEqual("Alien Googah");
+  })
+
+  it('carregando personagens de gênero indefinido', ()=>{
+    const dadosOrdenados = filtrarPorGender(data.results, "Genderless")
+
+    expect(dadosOrdenados[0].name).toEqual("Ghost in a Jar");
+  })
+});
+
+describe('testando filtro de espécie', ()=>{
+  it('carregando os personagens de espécie humana', ()=>{
+    const dadosOrdenados = filtrarPorEspecie(data.results, "Human")
+
+    expect(dadosOrdenados[0].name).toEqual("Rick Sanchez");
+  })
+
+  it('carregando personagens de espécie alienígena', ()=>{
+    const dadosOrdenados = filtrarPorEspecie(data.results, "Alien")
+
+    expect(dadosOrdenados[2].name).toEqual("Alien Morty");
+  })
+
+  it('carregando personagens de espécie vampiro', ()=>{
+    const dadosOrdenados = filtrarPorEspecie(data.results, "Vampire")
+
+    expect(dadosOrdenados[1].name).toEqual("Vampire Master");
+  })
+})
+
+describe('testando filtro de origem', ()=>{
+  it('carregando os personagens do planeta Terra (C-137)',()=>{
+    const dadosOrdenados = filtrarPorOrigin(data.results, "Earth (C-137)")
+
+    expect(dadosOrdenados[2].name).toEqual("Albert Einstein");
+  })
+
+  it('carregando os personagens do planeta Citadel of Ricks', ()=>{
+    const dadosOrdenados = filtrarPorOrigin(data.results, "Citadel of Ricks")
+
+    expect (dadosOrdenados[0].name).toEqual("Baby Rick");
+  })
+})
+
+describe('testando filtro de localização', ()=>{
+  it('carregando os personagens que estão no planeta Dorian 5', ()=>{
+    const dadosOrdenados = filtrarPorLocation(data.results, "Dorian 5")
+
+    expect (dadosOrdenados[0].name).toEqual("Diablo Verde");
+  })
+  it('carregando os personagens que estão no planeta Anatomy Park', ()=>{
+    const dadosOrdenados = filtrarPorLocation(data.results, "Anatomy Park");
+
+    expect (dadosOrdenados[0].name).toEqual("Alexander"); 
+  })
+})
+
+
+
+
