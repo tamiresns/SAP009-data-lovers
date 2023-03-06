@@ -49,32 +49,6 @@ export function filtrarPorLocation(personagens, location){
   return personagens.filter(personagemAtual => personagemAtual.location.name === location);
 }
 
-// const alive = filtrarPorStatus(personagens, "Alive");
-// const Abadango = filtrarPorLocation(alive, "abadango")
-
-
-// const aliveQueMoraEmAbadango = filtrarPorLocation(filtrarPorStatus(personagens, "Alive"), "Abadango")
-
-
-// export function filtrar(personagens, status, especie, genero, origem, location){
-//   return personagens.filter((personagemAtual) => {
-//     if(status !== "0" && personagemAtual.status === status){
-//       return true
-//     }
-//     if(especie !== "0" && personagemAtual.species === especie){
-//       return true
-//     }
-//     if(genero !== "0" && personagemAtual.gender === genero){
-//       return true
-//     }
-//     if(origem !== "0" && personagemAtual.origin.name === origem){
-//       return true
-//     }
-//     if(location !== "0" && personagemAtual.location.name === location){
-//       return true
-//     }
-//   })
-// }
 
 
 

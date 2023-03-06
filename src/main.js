@@ -147,22 +147,6 @@ function montaFiltroLugar(){
   lugarOndeVive.innerHTML = "<option value=0>Lugar onde vive</option>" + valoresUnicos;
 }
 
-// const botaoPesquisaNome = document.getElementById("btnBusca")
-// botaoPesquisaNome.addEventListener("click", pesquisaNome());
-// function pesquisaNome() {
-//   const x = (data.results.name)
-//   let input = document.getElementById("txtBusca").value
-//   input = input.toLowerCase();
-  
-//   for (let i = 0; i < x.length; i++) {
-//     if (!x[i].innerHTML.toLowerCase().includes(input)) {
-//       x[i].style.display="none";
-//     }
-//     else {
-//       x[i].style.display="list-item";
-//     }
-//   }
-// }
 
 //incluir novo filtro
 document.addEventListener('DOMContentLoaded', function () {
@@ -182,8 +166,7 @@ document.addEventListener('DOMContentLoaded', function () {
   
 })
 
-export {ordenar,//pesquisaNome//
-} 
+export {ordenar} 
 
 
 

@@ -55,7 +55,7 @@ header img{
 }
 
 #divBusca input{
-    height: 27px;
+    height: 30px;
     min-width: 350px;
     border-radius: 15px;
     outline: 0;
@@ -135,4 +135,5 @@ header img{
     font-size: 20px;
     color: white;
     text-align: center;
+    margin-left: 400px;
 }

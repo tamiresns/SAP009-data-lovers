@@ -112,6 +112,3 @@ describe('testando filtro de localização', ()=>{
   })
 })
 
-
-
-

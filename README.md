@@ -15,6 +15,9 @@ Nosso site foi desenvolvido para facilitar o acesso dos fãs á informações so
 seus personagens, assim como, permitir que aqueles que não a conhecem possam conhecer melhor
 os personagens de uma forma simples e divertida.
 
+# Link de acesso ao projeto finalizado
+(link)
+
 # Constatações
 
 Pesquisamos rapidamente as informações de que nossos usuários precisam e descobrimos que os 
@@ -65,3 +68,4 @@ para me situar melhor na história.
 
 * Escolha da paleta de cores:
 ![Paleta de cores](https://user-images.githubusercontent.com/110473504/221887980-ee80c006-df0b-4963-8fee-d751d91d8cbc.png)
+

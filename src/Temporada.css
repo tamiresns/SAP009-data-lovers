@@ -101,11 +101,23 @@ header img{
       text-align: center;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       font-size: 13px;
+      height: 30px;
       }
 
       li{
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         font-size: 18px; 
+      }
+
+      iframe{
+        margin-left: 250px;
+        margin-top: 20px;
+      }
+
+      .trailer{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 25px;
+        margin-left: 50px;
       }
   
 
