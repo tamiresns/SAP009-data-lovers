@@ -11,8 +11,7 @@ import {
 import data from './data/rickandmorty/rickandmorty.js';
 
 const root = document.getElementById('container-personagens')
-
-// console.log(search(data.results,"summer"))
+const inputBarra = document.getElementById("txtBusca");
 
 //função pega o html e preenche com os dados do json
 function mostrar(){
@@ -149,7 +148,6 @@ function montaFiltroLugar(){
 }
 
 function barraBusca(){
-  const inputBarra = document.getElementById('txtBusca')
   root.innerHTML = search(data.results, inputBarra.value).map((personagemAtual) => montaTemplate(personagemAtual))
 }
 
@@ -161,7 +159,6 @@ document.addEventListener('DOMContentLoaded', function () {
   const ordemAlfabetica = document.getElementById("ordemAlfabetica");
   ordemAlfabetica.addEventListener ("change", mostrarFiltrado);
 
-  const inputBarra = document.getElementById("txtBusca");
   inputBarra.addEventListener("keyup", barraBusca);
 
   mostrar()
