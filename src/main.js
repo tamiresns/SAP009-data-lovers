@@ -5,13 +5,17 @@ import {
   filtrarPorGender,
   filtrarPorLocation,
   filtrarPorOrigin,
-  filtrarPorStatus
+  filtrarPorStatus,
+  search
 } from './data.js';
 import data from './data/rickandmorty/rickandmorty.js';
 
+const root = document.getElementById('container-personagens')
+
+// console.log(search(data.results,"summer"))
+
 //função pega o html e preenche com os dados do json
 function mostrar(){
-  const root = document.getElementById('container-personagens')
   root.innerHTML = lerJson()
 }
 
@@ -47,7 +51,6 @@ function montaTemplate(personagemAtual){
 }
 
 function mostrarFiltrado(){
-  const root = document.getElementById('container-personagens')
   const dadosFiltrados = filtrarDados(data.results)
   const tipoOrdenacao = document.getElementById("ordemAlfabetica").value
   root.innerHTML = ordenar(dadosFiltrados, tipoOrdenacao).map((personagemAtual) => 
@@ -83,7 +86,6 @@ function filtrarDados(personagens){
   return filtro
 }
 
-
 //template para novos filtros
 function montaFiltroStatus(){
   const estadosDeVida = document.getElementById("estadoDeVida");
@@ -98,7 +100,6 @@ function montaFiltroStatus(){
     `<option value="${personagemAtual.status}">${dicionario[personagemAtual.status]}</option>`
   )))
   estadosDeVida.innerHTML = "<option value=0>Estado de vida</option>"+valoresUnicos;
-
 }
 
 function montaFiltroGender(){
@@ -147,6 +148,10 @@ function montaFiltroLugar(){
   lugarOndeVive.innerHTML = "<option value=0>Lugar onde vive</option>" + valoresUnicos;
 }
 
+function barraBusca(){
+  const inputBarra = document.getElementById('txtBusca')
+  root.innerHTML = search(data.results, inputBarra.value).map((personagemAtual) => montaTemplate(personagemAtual))
+}
 
 //incluir novo filtro
 document.addEventListener('DOMContentLoaded', function () {
@@ -156,13 +161,15 @@ document.addEventListener('DOMContentLoaded', function () {
   const ordemAlfabetica = document.getElementById("ordemAlfabetica");
   ordemAlfabetica.addEventListener ("change", mostrarFiltrado);
 
+  const inputBarra = document.getElementById("txtBusca");
+  inputBarra.addEventListener("keyup", barraBusca);
+
   mostrar()
   montaFiltroStatus()
   montaFiltroEspecie()
   montaFiltroLocalOrigem()
   montaFiltroLugar()
   montaFiltroGender()
-  
   
 })
 

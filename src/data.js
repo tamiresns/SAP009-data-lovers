@@ -49,6 +49,9 @@ export function filtrarPorLocation(personagens, location){
   return personagens.filter(personagemAtual => personagemAtual.location.name === location);
 }
 
+export function search(personagens, name){
+  return personagens.filter(personagemAtual => personagemAtual.name.toLowerCase().includes(name.toLowerCase()))
+}
 
 
 

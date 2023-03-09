@@ -46,6 +46,10 @@ de personagens que pertencem a um determinado local paraaber quantos personagens
 3. Eu como espectador quero uma lista de todos os personagens e de todos os episódios
 para me situar melhor na história.
 
+# Testes unitários
+
+![testes](https://user-images.githubusercontent.com/110473504/223775809-8930901c-5a53-48a3-8ba4-59c140c54b90.png)
+
 # Prototipagem: 
 
 * Protótipo de baixa fidelidade:
@@ -67,5 +71,6 @@ para me situar melhor na história.
 
 
 * Escolha da paleta de cores:
+
 ![Paleta de cores](https://user-images.githubusercontent.com/110473504/221887980-ee80c006-df0b-4963-8fee-d751d91d8cbc.png)
 
