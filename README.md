@@ -16,7 +16,7 @@ seus personagens, assim como, permitir que aqueles que não a conhecem possam co
 os personagens de uma forma simples e divertida.
 
 # Link de acesso ao projeto finalizado
-(link)
+https://anilorac93.github.io/SAP009-data-lovers/src/
 
 # Constatações
 
