@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lange="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Personagens</title>
+    <link rel="stylesheet" href="styleFiltro.css" />
+  </head>
+  <body>
+
+    <header>
+      <img src="Rick-And-Morty-Logo-2.png">
+    </header>
+      
+    <nav class="menu">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li id="btn-personagem"><a href="listaPersonagens.html">Personagens</a></li>
+        <li><a href="temporada.html">Episódios e temporadas</a></li>
+        <li><a href="sobreAserie.html">Sobre a Série</a></li>
+      </ul>
+    </nav>
+
+    <section class="conjuntoPesquisaEFiltro">
+
+      <section class="pesquisa">
+        <h1>Pesquisa</h1>
+        <div id="divBusca">
+          <input type="search" id="txtBusca" name="search" placeholder="Buscar personagem por nome"/>
+            <img src="imgSearch.png" id="btnBusca" alt="ícone de busca"/>
+        </div>
+      </section>
+
+      <section>
+        <label id="frase">Escolha um filtro e ...wubba lubba dub dub</label>
+      </section>
+     
+        <section class="filtro">
+          <div>
+            <select class="botaoFiltros" name="ordemAlfabetica" id="ordemAlfabetica">
+              <option>Ordem Alfabética</option>
+              <option value="az">A-Z</option>
+              <option value="za">Z-A</option>
+            </select>
+          </div>
+
+          <div>
+            <select class="botaoFiltros" name="estadoDeVida" id="estadoDeVida">
+              <option>Estado de Vida</option>
+            </select>
+          </div>
+
+          <div>
+            <select class="botaoFiltros" name="especie" id="especie">
+              <option>Espécie</option>
+             
+            </select>
+          </div>
+
+          <div>
+            <select class="botaoFiltros" name="genero" id="genero">
+              <option>Gênero</option>
+            </select>
+          </div>
+
+          <div>
+            <select class="botaoFiltros" name="localDeOrigem" id="localDeOrigem">
+              <option>Local de Origem</option>
+            </select>
+          </div>
+
+          <div>
+            <select class="botaoFiltros" name="lugarOndeVive" id="lugarOndeVive">
+              <option>Lugar Onde Vive</option>
+            </select>
+          </div>
+        </section>
+    </section>
+
+    <main>
+      <section class="container" id="container-personagens">
+        <div id="root-rick"></div>    
+      </section>
+    </main>
+    <script src="main.js" type="module"></script>
+    <script src="data.js" type="module"></script>
+
+    
+  </body>
+  
+</html>

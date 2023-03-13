@@ -1,0 +1,123 @@
+body{
+    background: #252525;
+    background-repeat: no-repeat;
+}
+
+header{
+    display: flex;
+    justify-content: center;
+}
+
+header img{
+    max-width: 400px;
+    margin: 10px;
+}
+
+.menu ul{
+    display: flex;
+    justify-content: center;
+    align-content: stretch;
+    flex-wrap: wrap;
+    list-style: none;
+}
+.menu a{
+    text-decoration: none;
+    padding: 0px 75px;
+    color: white;
+    font-size: 18px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.menu a:hover{
+    border: solid;
+    background-color: rgba(255, 255, 255, 0.871);
+    border-radius: 10px;
+    color:#025951;
+}
+
+:root {
+  --space-sm: 16px;
+  --gray-light: black;
+  --gray-lighter: black;
+  }
+  
+  .temps{
+    margin-top: 70px;
+    color: var(--text-color);
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    color: black;
+    }
+  
+  details {
+    summary {
+      list-style: none;
+    }
+  }
+  
+  .collapse {
+    border: solid 1px var(--gray-lighter);
+    border-radius: 4px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 50);
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 80%;
+    transition: background-color 0.25s;
+    background-color: rgb(213, 219, 217);
+  
+    &:first-child {
+      margin-top: var(--space);
+    }
+  
+    &:not(:last-child) {
+      margin-bottom: var(--space-sm);
+    }
+  
+    &:hover {
+      background-color: var(--gray-lighter);
+      }
+    }
+  
+  .title {
+    cursor: pointer;
+    font-weight: 600;
+    padding: var(--space-sm);
+    position: relative;
+  
+  }
+  
+  .description {
+    border-top: var(--gray-light) solid 1px;
+    font-size: 14px;
+    line-height: 21px;
+    padding: var(--space-sm);
+  }
+
+    .separacaoVerde {
+      width: 75%;
+      margin: auto;
+      margin-top: 40px;
+      background-color: #0CF25D;
+      border-radius: 10px;
+      text-align: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 13px;
+      height: 30px;
+      }
+
+      li{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 18px; 
+      }
+
+      iframe{
+        margin-left: 250px;
+        margin-top: 20px;
+      }
+
+      .trailer{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 25px;
+        margin-left: 50px;
+      }
+  
+
